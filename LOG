@@ -1,0 +1,35 @@
+
+V 1.2.20
+-/agency/AAMS/agents/view/cmsnqovp_qprusn?_=1546762787722 error from Agency Panel 
+-Location => Search Trip => error on loadData (Description : Not Showing anything & request ends with Code 500)
+-Agent List From Agency View  
++Agent add directly from Admin Panel
+-/admin/ADMS/agent/bills/search  POST request ends with Code 500
+-Invoice genrate on Aprroved Invoices
+- Add agents List on Task Page
++ Add invoice List
+
+
+
+V 1.2.19
+-UI Fixed
+-Multiple Click/Multiple add Bug Fixed
+-Minor Bug Fixed on View Query Page 
+-Shortcut Detailes added
+-Invoice automatically on document approved.
+-Task Read/Unread background Color Fixed.
+-Minor Performance Bugs fixed.
+
+
+
+V 1.2.18
+-Agent can upload documents from Android app added.
+-Logo has changed as per request.
+-Some Spelling Correction fixed.
+-Agent's Uploaded document Can view in Invoices Module.
+-Agent Bill can Search from invoice Module -> Agent's Bills (Currently available search by agency)
+-Home page Restructured (Now all Modules can access seamlessly from home page).
+-Login As agency session bug fixed.
+-Minor Performance Bugs fixed.
+-Minor User Interface  Bugs Fixed.   
+-Task Sorting Display Bugs Fixed. 

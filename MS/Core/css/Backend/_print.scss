@@ -1,0 +1,30 @@
+.navbar ,.label {
+	
+	display: none !important;
+}
+
+
+
+body::after {
+content:"Computer Verified Document by MS-Custom Cloud Application"!important;
+
+margin-left:200px;
+margin-right:200px;
+padding-bottom:10px;
+
+ }
+
+ body::before {
+content:"Computer Verified Document by MS-Custom Cloud Application"!important;
+margin-left:200px;
+margin-right:200px;
+
+ }
+
+ .ms-addressTable,.ms-addressTable >tbody> tr, .ms-addressTable >tbody> tr > th,.ms-addressTable >tbody> tr > td{
+//width:100%!important;	
+border: 3px solid transparent !important;
+// border:0 px solid transparent;
+
+ 	//box-shadow: 1px 1px transparent !important;
+ }

@@ -1,0 +1,84 @@
+
+// Body
+$body-bg: #f5f8fa;
+
+//MS
+$ms-side-box-color:#0083b0;
+
+// Borders
+$laravel-border-color: darken($body-bg, 10%);
+$list-group-border: $laravel-border-color;
+$navbar-default-border: $laravel-border-color;
+$panel-default-border: darken(#F5F5F5,2%);
+$panel-inner-border: darken(#F5F5F5,2%);
+
+// Brands
+$brand-primary: #E8EAF6;
+$brand-info: lighten($ms-side-box-color,10%);
+$brand-success: #388E3C;
+$brand-warning: #EEFF41;
+$brand-danger: #ef5350;
+
+// Typography
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$font-family-sans-serif: 'Verdana', sans-serif;
+$font-size-base: 11px;
+$line-height-base: 1.2;
+$text-color: #212121;
+
+// Navbar
+$navbar-default-bg:#F5F5F5;
+
+// Buttons
+$btn-default-color: $text-color;
+
+// Inputs
+$input-border: lighten($text-color, 40%);
+$input-border-focus: lighten($brand-primary, 25%);
+$input-color-placeholder: lighten($text-color, 30%);
+
+// Panels
+//$panel-default-heading-bg: darken(#F5F5F5,3%);
+
+// Radius 
+
+$btn-border-radius-base:         0px !default;
+$btn-border-radius-large:        0px !default;
+$btn-border-radius-small:        0px !default;
+
+$input-border-radius:            0px !default;
+$input-border-radius-large:      0px !default;
+$input-border-radius-small:      0px !default;
+
+$panel-border-radius:         0px;
+
+
+
+
+
+
+$panel-bg:                    #fff !default;
+$panel-body-padding:          5px !default;
+$panel-heading-padding:       5px 5px !default;
+$panel-footer-padding:        $panel-heading-padding !default;
+
+
+
+$input-border-focus:            #263238;
+
+$table-cell-padding:            5px !default;
+
+$input-color-placeholder:       #42a5f5;
+
+$link-color:            $text-color !default;
+
+
+////MS Variables 
+
+
+$ms-side-box-color:#2196F3;
+$ms-side-box-text-color: rgb(236,239,241);
+$ms-side-box-text-shadow-color:darken($ms-side-box-text-color,100%);
+//$ms-side-box-shadow-color: darken($ms-side-box-color,10%);
+$ms-side-box-shadow-color:darken(#616161,20%);
+$ms-live-tab-background-color:rgba(30,34,35,0.1);

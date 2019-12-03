@@ -1,0 +1,105 @@
+.ms-help{
+  
+cursor:help;
+
+}
+
+.ms-side-box{
+  
+
+//   background-color:;
+  // min-height:100vh!important;
+   padding-left: 0px!important; 
+   padding-right: 0px!important;
+
+
+}
+
+.ms-content-box{
+  min-height:75vh;
+  padding-bottom: 30px!important;
+  padding-right: 1px!important;
+  padding-left: 2px!important;
+  display: inline-block!important;
+
+}
+
+table{
+ // display: block!important;
+}
+
+
+.ms-live-tab{
+  margin-top:52px;
+}
+
+
+.ms-logo{
+  margin-top:9px;
+  margin-left:5px;
+  margin-right:5px;
+  padding-bottom:5px;
+  padding-left:4px;
+  padding-right:4px;
+  max-height:40px;
+  cursor:pointer;
+}
+
+
+.ms-logo:hover{
+	-webkit-filter: grayscale(100%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
+ 	 filter: grayscale(100%); /* FF 35+ */
+	animation-name: blackNwhite;
+    animation-duration: 500ms;
+    animation-iteration-count: 1;
+    animation-direction:normal;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    box-shadow: 0px 15px 25px darken(#4478d2,50%);
+
+
+    
+}
+
+
+
+
+
+
+
+@keyframes blackNwhite {
+    from {
+    -webkit-filter: grayscale(0%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
+ 	 filter: grayscale(0%); /* FF 35+ */
+    box-shadow: 0px 0px 0px lighten(#4478d2,90%);
+    }
+    to {
+    -webkit-filter: grayscale(100%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
+    filter: grayscale(100%); /* FF 35+ */
+    box-shadow: 0px 5px 5px #4478d2;
+
+    }
+}
+
+
+
+.nav > li > a:hover{
+	font-weight: 100;
+ 	
+	box-shadow: 0px 5px 5px darken( $brand-info,5%);
+	color:$brand-info!important;
+  transition :box-shadow 500ms,color 500ms;
+
+}
+
+li.ms-border:hover{
+  
+  border:3px solid darken( $brand-info,5%);
+  transition :border 500ms;
+}
+
+.label-default:hover{
+  
+   background-color: darken( $brand-info,5%);
+  transition :background-color 500ms;
+}
