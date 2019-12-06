@@ -32,9 +32,16 @@ public static $routes=[
 						[
 						'name'=>'NMS.index.Data',
 						'route'=>'/data',
-						'method'=>'indexData',
+						'method'=>'newindex',
 						'type'=>'get',
 						],
+
+                        [
+                            'name'=>'NMS.index.Data.Ajax',
+                            'route'=>'/data/ajax',
+                            'method'=>'indexDataAjax',
+                            'type'=>'get',
+                        ],
 
 						[
 						'name'=>'NMS.Notification.By.User',
@@ -50,6 +57,15 @@ public static $routes=[
 						'method'=>'viewById',
 						'type'=>'get',
 						],
+
+    [
+        'name'=>'NMS.Notification.By.Id.Raw',
+        'route'=>'/view/raw/{UniqId}',
+        'method'=>'viewByRawId',
+        'type'=>'get',
+    ],
+
+
 					];
 
 public static $tableNo="0";

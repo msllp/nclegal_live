@@ -21,7 +21,8 @@
 
 
 <?php 
-//dd($noti)
+
+
 
  $read="";
 if(!$noti['Read']){

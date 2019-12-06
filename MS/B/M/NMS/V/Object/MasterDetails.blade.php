@@ -10,9 +10,22 @@ $tableId=3;
 		$model=new \B\NMS\Model($tableId,session('user.userData.UniqId'));
 
 
-		
-	//dd();
+$m1=$model->get();
+
 			$model=$model->orderBy('created_at','desc')->paginate(10);
+//dd($model);
+
+
+
+			$model->item=$m1->map(function ($item){
+
+                $item->NotificationLink=str_replace('nc.msllp.in','nc.msapp.in',$item->NotificationLink);
+                $item->TargetLink=str_replace('nc.msllp.in','nc.msapp.in',$item->TargetLink);
+                return $item;
+
+            });
+
+			//dd($model);
 			\MS\Core\Helper\Comman::DB_flush();
 
 			//dd($model->toArray());
