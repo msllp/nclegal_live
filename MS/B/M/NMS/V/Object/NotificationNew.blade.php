@@ -44,8 +44,15 @@
 
             'createdRow': function( row, data, dataIndex ) {
                 $(row).attr('ms-live-link',  '{!! route("NMS.Notification.By.Id.Raw",[ "UserId"=>"" ]) !!}/'+data.UniqId);
+            //    console.log(data.Read);
+        if(data.Read==1){
 
-                $(row).attr('class', "ms-mod-btn");
+            $(row).attr('class', "ms-mod-btn");
+        }else{
+
+            $(row).attr('class', "ms-mod-btn ms-text-bold");
+        }
+
 
             }
             ,
@@ -62,5 +69,6 @@
         // table.order( [[ 7, 'date' ]] );
 
     </script>
+
 
 @endsection
