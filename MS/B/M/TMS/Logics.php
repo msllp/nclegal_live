@@ -841,7 +841,7 @@ $c1=Base::genUniqID();
 
 
 
-public static function TaskNotify($TaskId,$AgencyCode,$ActionType){
+            public static function TaskNotify($TaskId,$AgencyCode,$ActionType){
 
 
 
@@ -849,20 +849,15 @@ public static function TaskNotify($TaskId,$AgencyCode,$ActionType){
 			$c4n=\MS\Core\Helper\Comman::random(4);
 			
 			\B\NMS\Logics::newNotification(
-
 				session('user.userData.UniqId'),
 				1,
 				$c4n,
 				$ActionType,				
-				' no.'.$TaskId." & assined to ". \B\AMS\Logics::getAgencyName($AgencyCode),
+				' no.'.$TaskId." & assigned to ". \B\AMS\Logics::getAgencyName($AgencyCode)." by ".\B\Users\Logics::getUserName(session('user.userData.UniqId')),
 				route('NMS.Notification.By.Id',
-				
-				['UniqId'=>
-											\MS\Core\Helper\Comman::en4url($c4n)]),
-					route('TMS.Task.View.Id',
-				
-				['UniqId'=>
-											\MS\Core\Helper\Comman::en4url($TaskId)])
+				['UniqId'=>\MS\Core\Helper\Comman::en4url($c4n)]),
+                route('TMS.Task.View.Id',
+				['UniqId'=>\MS\Core\Helper\Comman::en4url($TaskId)])
 				);
 
 			\MS\Core\Helper\Comman::DB_flush();
