@@ -4,7 +4,7 @@
 
 
             <h4 class="panel-title"  style="padding: 5px; padding-left: 10px;" >
-               <span class="label label-default hidden-xs hidden-sm" ><i class="fa fa-keyboard-o" aria-hidden="true"></i>  Alt + 4</span>
+               <span class="label label-default hidden-xs hidden-sm" ><i class="fa fa-keyboard-o" aria-hidden="true"></i>  Alt + 5</span>
                <span class="label label-default" ><i class="fa fa-compass" aria-hidden="true"></i> Location</span>
               
           

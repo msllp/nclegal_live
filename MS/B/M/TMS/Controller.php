@@ -51,35 +51,32 @@ class Controller extends \App\Http\Controllers\Controller
 	public function taskAdd(){
 		\MS\Core\Helper\Comman::DB_flush();
 
-//
-//		$m=new Model (7);
-//		$allTask=$m->get()->toArray();
-//
-//		dd($allTask);
-//
-//		foreach ($allTask as $key => $value) {
-//
-//		\MS\Core\Helper\Comman::DB_flush();
-//		if(!array_key_exists('UniqId',$value))dd($value);
-//		$m2=new Model(1,$value['UniqId']);
-//		$user=$m2->get()->first()->TakenBy;
-//		\MS\Core\Helper\Comman::DB_flush();
-//		$m3=new Model(7);
-//		$m3->MS_update(['TakenBy'=>$user],$value['UniqId']);
-//
-//		//dd($user);
-//
-//
-//		}
-//
-//	//	dd();
+		
+		$m=new Model (7);
+		$allTask=$m->get()->toArray();
+
+		foreach ($allTask as $key => $value) {
+			
+		\MS\Core\Helper\Comman::DB_flush();
+		$m2=new Model(1,$value['UniqId']);
+		$user=$m2->get()->first()->TakenBy;
+		\MS\Core\Helper\Comman::DB_flush();
+		$m3=new Model(7);
+		$m3->MS_update(['TakenBy'=>$user],$value['UniqId']);
+		
+		//dd($user);
+
+
+		}
+
+	//	dd();
 
 		$id=0;
 		$build=new \MS\Core\Helper\Builder (__NAMESPACE__);
 
 
 
-		$build->title("Assign Task to Agency")->heading(['Basic Details of APR ,Received from STAR'])->content($id)->action("taskAddPost")->btn([
+		$build->title("Assign Task to Agency")->heading(['Basic Details of APR ,Recivied from STAR'])->content($id)->action("taskAddPost")->btn([
 								'action'=>"\\B\\TMS\\Controller@taskView",
 								'color'=>"btn-info",
 								'icon'=>"fa fa-fast-backward",
@@ -244,9 +241,8 @@ class Controller extends \App\Http\Controllers\Controller
 				session('user.userData.UniqId'),
 				1,
 				$c4n,
-				111,
-
-				' no.'.$uniqid." & assigned to ". \B\AMS\Logics::getAgencyName($input['HireAgencyCode'])." by ".\B\Users\Logics::getUserName(session('user.userData.UniqId')),
+				111,				
+				' no.'.$uniqid." & assined to ". \B\AMS\Logics::getAgencyName($input['HireAgencyCode']),
 				route('NMS.Notification.By.Id',
 				
 				['UniqId'=>
@@ -332,12 +328,12 @@ public function taskViewAjax(\Illuminate\Http\Request $r){
 	if (!array_key_exists('Status', $rData)) $rData['Status'] = 0;
 
 	//return Datatables::of($m->get())->make(true);	
-    return \Datatables::of($m->where('Status',$rData['Status'])->get()->map(function ($user){
-
-        $user->HireAgencyCode = \B\AMS\Logics::getAgencyName($user->HireAgencyCode);
-        $user->created_at_string=$user->created_at->format("Y/m/d");
-        $user->CurrentStatus=\B\TMS\Logics::getTypeOfAction($user->CurrentStatus)['NameOfAction'];
-
+return \Datatables::of($m->where('Status',$rData['Status'])->get()->map(function ($user){
+    $user->HireAgencyCode = \B\AMS\Logics::getAgencyName($user->HireAgencyCode);
+   //$user->created_at_string = \Carbon::parse($user->created_at)->format('d/m/Y');
+  $user->created_at_string=$user->created_at->format("Y/m/d");
+  $user->CurrentStatus=\B\TMS\Logics::getTypeOfAction($user->CurrentStatus)['NameOfAction'];
+    //dd(\Carbon::parse($user->created_at)->format('d-m-Y'));
     return $user;
 }))->orderByNullsLast()->make(true);
 
@@ -364,7 +360,7 @@ public function taskView(\Illuminate\Http\Request $r)
 		'tableColumn'=>[
 			'created_at_string'=>"Created On",
 			'UniqId'=>"ID",
-			'HireAgencyCode'=>"Assigned Agency",
+			'HireAgencyCode'=>"Assined Agency",
 			'NameOperator'=>'Name of Operator',
 			'ModePiracy'=>'Mode of Piracy',
 			'CurrentStatus'=>'Current Status',
@@ -400,11 +396,11 @@ public function taskView(\Illuminate\Http\Request $r)
     $diplayArray = [
         'UniqId' => 'Task ID',
 
-        'HireAgencyCode' => 'Name of Assigned Agency',
+        'HireAgencyCode' => 'Name of Assined Agency',
 
         'NameOperator' => 'Name of Operator',
 
-        'IllegalTypeBroadcasting' => 'Type Broadcasting',
+        'IllegalTypeBroadcasting' => 'Type Broacasting',
 
 
         'ModePiracy' => 'Mode of Piracy',
@@ -824,7 +820,7 @@ public function taskApproveById($UniqId,$StepId){
 
 
 
-            public function getUploadedFile($UniqId,$TaskId,$StepId,$TypeOfDocument,$FileName){
+public function getUploadedFile($UniqId,$TaskId,$StepId,$TypeOfDocument,$FileName){
 
 
 			//dd();
@@ -951,7 +947,7 @@ public function taskApproveById($UniqId,$StepId){
 
 
 
-            public function riseQueryPost ( R\RiseQuery $r, $TaskId,$StepId){
+public function riseQueryPost ( R\RiseQuery $r, $TaskId,$StepId){
 
 				\MS\Core\Helper\Comman::DB_flush();
 
@@ -1241,7 +1237,7 @@ foreach ($updateArray as $key2 => $value2) {
 
 
 
-	        public function  riseQueryView ($TaskId,$StepId){
+	public function  riseQueryView ($TaskId,$StepId){
 
 		        \MS\Core\Helper\Comman::DB_flush();
 				$data['TaskId']=\MS\Core\Helper\Comman::de4url($TaskId);
@@ -1307,7 +1303,7 @@ foreach ($updateArray as $key2 => $value2) {
 
 
 
-	        public function  riseQueryReject($TaskId,$StepId,$en=true){
+	public function  riseQueryReject($TaskId,$StepId,$en=true){
 
 
 			    \MS\Core\Helper\Comman::DB_flush();
@@ -1382,7 +1378,7 @@ foreach ($updateArray as $key2 => $value2) {
 	}
 
 
-        	public function taskViewByColumn ($Column){
+	public function taskViewByColumn ($Column){
 
 
 
@@ -1395,7 +1391,7 @@ foreach ($updateArray as $key2 => $value2) {
 
 
 
-        	public function riseQueryforTask ($TaskId){
+	public function riseQueryforTask ($TaskId){
 
 		\MS\Core\Helper\Comman::DB_flush();
 		$data['TaskId']=\MS\Core\Helper\Comman::de4url($TaskId);
@@ -1428,7 +1424,7 @@ foreach ($updateArray as $key2 => $value2) {
 	}
 
 
-        	public function riseQueryActionPost(\Illuminate\Http\Request $r, $TaskId){
+	public function riseQueryActionPost(\Illuminate\Http\Request $r, $TaskId){
 
 		$data['TaskId']=\MS\Core\Helper\Comman::de4url($TaskId);
 		$input=$r->all();
@@ -1509,14 +1505,14 @@ foreach ($updateArray as $key2 => $value2) {
 	}
 
 
-	        public function searchTask(){
+	public function searchTask(){
 
 			$data=[];
 			return view('TMS.V.Object.TaskSearch')->with('data',$data);
 	}
 
 
-	        public function searchTaskPost(\Illuminate\Http\Request $r){
+		public function searchTaskPost(\Illuminate\Http\Request $r){
 
 		$input=$r->all();
 		//dd($input);
@@ -1606,11 +1602,11 @@ foreach ($updateArray as $key2 => $value2) {
 						$diplayArray=[
 				//'UniqId'=>'ID',
 
-				'HireAgencyCode'=>'Name of Assigned Agency',
+				'HireAgencyCode'=>'Name of Assined Agency',
 
 				'NameOperator'=>'Name of Operator',
 
-				'IllegalTypeBroadcasting'=>'Type Broadcasting',
+				'IllegalTypeBroadcasting'=>'Type Broacasting',
 				
 
 				'ModePiracy'=>'Mode of Piracy',
@@ -1652,7 +1648,7 @@ foreach ($updateArray as $key2 => $value2) {
 
 
 
-	        public function taskUploadById($UniqId){
+	public function taskUploadById($UniqId){
 
 		$uniqId=\MS\Core\Helper\Comman::de4url($UniqId);
 
@@ -1681,7 +1677,7 @@ foreach ($updateArray as $key2 => $value2) {
 
 
 
-	        public function taskUploadByIdPost($UniqId,\B\ATMS\R\UploadDocuments $r){
+	public function taskUploadByIdPost($UniqId,\B\ATMS\R\UploadDocuments $r){
 
 
 		return Logics::uploadDocument($UniqId,$r);
@@ -1692,7 +1688,7 @@ foreach ($updateArray as $key2 => $value2) {
 	}
 
 
-	        public function taskStepDeleteById($TaskId,$StepId){
+	public function taskStepDeleteById($TaskId,$StepId){
 
 
 		return Logics::deleteStep($TaskId,$StepId);
@@ -1703,7 +1699,7 @@ foreach ($updateArray as $key2 => $value2) {
 
 
 
-            public function taskCloseById($UniqId){
+	public function taskCloseById($UniqId){
 			\MS\Core\Helper\Comman::DB_flush();
 			$UniqId=\MS\Core\Helper\Comman::de4url($UniqId);
 			$status=200;
@@ -1745,7 +1741,7 @@ foreach ($updateArray as $key2 => $value2) {
 
 
 
-        	public  function taskAddPaymentModelbyId($UniqId){
+	public  function taskAddPaymentModelbyId($UniqId){
 
 		$status="200";
 
@@ -1765,7 +1761,7 @@ foreach ($updateArray as $key2 => $value2) {
 
 
 
-        	public function taskAddPaymentbyId($UniqId){
+	public function taskAddPaymentbyId($UniqId){
 
 
 		$uniqId=\MS\Core\Helper\Comman::de4url($UniqId);
@@ -1799,7 +1795,7 @@ foreach ($updateArray as $key2 => $value2) {
 
 	}
 
-        	public function taskAddInvoicebyIdPost($TaskId,R\AddInvoice $r){
+	public function taskAddInvoicebyIdPost($TaskId,R\AddInvoice $r){
 
 		$TaskId=\MS\Core\Helper\Comman::de4url($TaskId);
 		

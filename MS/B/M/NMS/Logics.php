@@ -11,7 +11,6 @@ class Logics{
 		\MS\Core\Helper\Comman::DB_flush();
 
 
-		//+dd($text);
 
 
 		$addArray=[
